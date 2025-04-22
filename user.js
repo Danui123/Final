@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = { username, email, password };
         localStorage.setItem("user", JSON.stringify(user));
         alert("Registration Successful! Please Login.");
-        window.location.href = "index.html";
+        window.location.href = "login.html";
       });
     }
   
