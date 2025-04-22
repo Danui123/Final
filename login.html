@@ -89,8 +89,7 @@
     <input type="password" id="loginPassword" placeholder="Enter Password" required><br>
     <button type="submit">Login</button>
   </form>
-  <p>Don't have an account?
-    <a href="register.html">Register here</a></p>
+  <p>Don't have an account? <a href="register.html">Register here</a></p>
 
   <script src="js/user.js"></script>
   <script>
@@ -104,6 +103,31 @@
       const isDark = document.body.classList.contains("dark");
       localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user && user.email === email && user.password === password) {
+        localStorage.setItem("isLoggedIn", "true");
+        alert("Login Successful!");
+        window.location.href = "user-dashboard.html"; // ← Check this file exists
+      } else {
+        alert("Invalid credentials!");
+      }
+    });
+  }
+});
+
   </script>
 </body>
 </html>
+
