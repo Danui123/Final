@@ -86,18 +86,15 @@
 <body>
   <h2>User Registration</h2>
   <form id="registerForm">
-    <input type="text" id="username" placeholder="Enter Username" required><br>
-    <input type="email" id="email" placeholder="Enter Email" required><br>
-    <input type="password" id="password" placeholder="Enter Password" required><br>
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
     <button type="submit">Register</button>
   </form>
-  <p>Already have an account?
-    <a href="login.html">Login here</a></p>
-
-  <script src="js/user.js"></script>
+  <p>Already have an account? <a href="login.html">Login here</a></p>
 
   <script>
-    // Apply dark mode on page load if enabled
+    // Dark Mode
     if (localStorage.getItem("darkMode") === "enabled") {
       document.body.classList.add("dark");
     }
@@ -107,6 +104,27 @@
       const isDark = document.body.classList.contains("dark");
       localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
     }
+
+    // Wait for page to fully load
+    document.addEventListener("DOMContentLoaded", () => {
+      const regForm = document.getElementById("registerForm");
+
+      if (regForm) {
+        regForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+
+          const user = { username, email, password };
+          localStorage.setItem("user", JSON.stringify(user));
+          alert("Registration Successful! Please Login.");
+          window.location.href = "login.html";  // Redirect to login
+        });
+      }
+    });
   </script>
 </body>
 </html>
+
