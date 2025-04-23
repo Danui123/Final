@@ -22,7 +22,7 @@ const products = [
   
     products.forEach((p, index) => {
       container.innerHTML += `
-        <div class="product-card">
+        <div class="product">
           <img src="${p.image}" alt="${p.name}" style="width:100%; height:200px; object-fit:cover; border-radius:10px; cursor:pointer;" onclick="viewProduct(${index})">
           <h3>${p.name}</h3>
           <p>Price: $${p.price.toFixed(2)}</p>
