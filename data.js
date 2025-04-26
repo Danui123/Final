@@ -2,17 +2,17 @@ const products = [
     {
       name: "Running Shoes",
       price: 149.99,
-      image: "assets-img/shoes.jpg"
+      image: "./assets-img/shoes.jpg"
     },
     {
       name: "Smart Watch",
       price: 99.99,
-      image: "assets-img/watch.jpg"
+      image: "./assets-img/watch.jpg"
     },
     {
       name: "Headphones",
       price: 199.99,
-      image: "assets-img/headphones.jpg"
+      image: "./assets-img/headphones.jpg"
     }
   ];
   
